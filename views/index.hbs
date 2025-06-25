@@ -1,0 +1,20 @@
+<h1>Todo List</h1>
+
+<form action="/add" method="POST">
+    <input type="text" name="title" placeholder="Add a new task" required>
+    <button type="submit">Add</button>
+</form>
+
+<ul>
+    {{#each todos}}
+        <li>
+            <form action="/update/{{this.id}}" method="POST">
+                <input type="checkbox" {{#if this.completed}}checked{{/if}} onchange="this.form.submit()">
+                {{this.title}}
+            </form>
+            <form action="/delete/{{this.id}}" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    {{/each}}
+</ul>
