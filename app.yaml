@@ -1,0 +1,16 @@
+# Use a custom runtime because we are providing our own Dockerfile
+runtime: custom
+env: flex
+
+# Define the environment variables that will be securely passed to our application.
+# Notice that PORT is NOT here, as App Engine provides it automatically.
+env_variables:
+  DB_USER: 'root'
+  DB_PASS: 'anvesha123'
+  DB_NAME: 'mydatabase'
+
+# This special setting tells App Engine to create a secure connection
+# to our Cloud SQL database, which our code can then access via a socket path.
+beta_settings:
+  cloud_sql_instances: "totemic-sector-463508-s1:us-central1:mydb"
+
