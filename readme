@@ -2,21 +2,21 @@ Hey there! Welcome to my To-Do List project. This isn't just another to-do app; 
 ---
 The real goal here was to build something practical and then take it through the entire lifecycle, from running on a local machine to being live on the internet via Google App Engine.
 ---
-##The Tech Stack:
--I chose a set of technologies that are both powerful and great for learning.
+## The Tech Stack:
+- I chose a set of technologies that are both powerful and great for learning.
 
--Backend: Good old Node.js and Express.js for a fast and flexible server.
+- Backend: Good old Node.js and Express.js for a fast and flexible server.
 
--Frontend: Handlebars.js is the templating engine. This means the server builds the HTML pages with our data before sending them to the browser.
+- Frontend: Handlebars.js is the templating engine. This means the server builds the HTML pages with our data before sending them to the browser.
 
--Database: MySQL, a rock-solid database for storing the tasks. We're using the mysql2 driver in Node.js for its speed and security features.
+- Database: MySQL, a rock-solid database for storing the tasks. We're using the mysql2 driver in Node.js for its speed and security features.
 
--Deployment: This is where the magic happens! The app is configured to run on Google App Engine inside a Docker container. The database lives on Google Cloud SQL.
+- Deployment: This is where the magic happens! The app is configured to run on Google App Engine inside a Docker container. The database lives on Google Cloud SQL.
 ---
-##Part 1: Get Your Cloud Space Ready
+## Part 1: Get Your Cloud Space Ready
 First, we need to prepare your Google Cloud project to receive the application.
 
-#Step 1: Turn on the Power
+# Step 1: Turn on the Power
 Your project needs a few services to be "on" before it can work. Just copy and paste these commands into your own computer's terminal to enable them.
 ```
 gcloud services enable appengine.googleapis.com
@@ -25,7 +25,7 @@ gcloud services enable servicenetworking.googleapis.com
 gcloud services enable cloudbuild.googleapis.com
 ```
 
-#Step 2: Create Your Cloud Database
+# Step 2: Create Your Cloud Database
 
 Go to the SQL section in your Google Cloud Console.
 
@@ -35,24 +35,24 @@ When you create it, set a password for the root user. This is important! Write d
 
 After it's created, click on the instance, go to its Connections tab, and make sure the Public IP box is checked.
 
-##Part 2: Get Your Code Ready
+## Part 2: Get Your Code Ready
 
 Now, let's quickly configure your code to talk to your new cloud database.
 
-#Step 1: Update app.yaml
+# Step 1: Update app.yaml
 This file is the main set of instructions for App Engine. Open it and make two changes:
 
 Update DB_PASS with the new Cloud SQL password you just wrote down.
 
 Update the cloud_sql_instances value to match the Instance connection name you see on your Cloud SQL page.
 
-#Step 2: Check config/config.js
+# Step 2: Check config/config.js
 Open this file and just make sure the instanceConnectionName variable inside it perfectly matches the one you just put in app.yaml.
 
-#Step 3: Check server.js
+# Step 3: Check server.js
 This is important! Make sure your server.js file is the final version we created that correctly sets up the Handlebars view engine. The simple version that just served static files won't work.
 
-##Part 3: Launch!
+## Part 3: Launch!
 This is it. You've done all the prep work.
 
 From your terminal, inside your project's main folder, just run this one command:
