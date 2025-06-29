@@ -1,17 +1,3 @@
-DATABASE SECTION
-----------------------------------------------------
-CREATE DATABASE mydatabase;
-use mydatabase;
-CREATE TABLE todos (
-    ->     id INT AUTO_INCREMENT PRIMARY KEY,
-    ->     title VARCHAR(255) NOT NULL,
-    ->     completed BOOLEAN DEFAULT FALSE
-    -> );
------------------------------------------------
+Hey there! Welcome to my To-Do List project. This isn't just another to-do app; it was a real adventure in building a full-stack application and getting it deployed to the cloud. It's built with a classic, solid stack: Node.js and Express on the back end, Handlebars to create the web pages, and a reliable MySQL database to make sure no tasks get lost.
 
-
-DOCKER FILE
--------------------------------------------------------
-docker build -t todolist .
-docker run -it -p 5000:5000 --env-file .env todolist sh
---------------------------------------------------------
+The real goal here was to build something practical and then take it through the entire lifecycle, from running on a local machine to being live on the internet via Google App Engine.
